@@ -237,13 +237,6 @@ When deployed as Android app:
 - Run `npx cap sync android` after code changes
 - Check AndroidManifest.xml for camera permissions
 
-## 📚 Additional Resources
-
-- [Capacitor Documentation](https://capacitorjs.com/docs)
-- [WebRTC API](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API)
-- [Canvas 2D API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
-- [Lovable Mobile Development Guide](https://lovable.dev/blogs/TODO)
-
 ## 📄 License
 
 MIT License - Free for educational and commercial use
