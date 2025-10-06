@@ -1,77 +1,76 @@
-# EdgeFlow Live - Real-time Edge Detection Viewer
+EdgeFlow Pro – Real-Time Edge Detection Viewer
 
-A high-performance web application for real-time edge detection with mobile deployment capabilities.
+EdgeFlow Pro is a high-performance web application that captures live camera frames and performs real-time edge detection. The app can run on the web and be deployed as a native Android app using Capacitor.
 
-## 🎯 Project Overview
+This project demonstrates your ability to integrate web technologies with native mobile features, implement image processing algorithms, and optimize performance for real-time applications.
 
-EdgeFlow Live is a technical assessment project demonstrating:
-- Real-time camera frame capture and processing
-- Advanced edge detection algorithms (Sobel-based Canny approximation)
-- Performance optimization (10-15 FPS target)
-- Cross-platform deployment (Web + Native Android via Capacitor)
-- Modern web technologies and responsive design
+🎯 Project Overview
 
-## 🏗️ Architecture
+EdgeFlow Pro highlights:
 
-```
-┌─────────────────────────────────────────────────┐
-│           Frontend (React + TypeScript)         │
-│  ┌──────────────┐         ┌──────────────┐     │
-│  │  WebRTC API  │────────▶│ Canvas 2D    │     │
-│  │  (Camera)    │         │ Processing   │     │
-│  └──────────────┘         └──────────────┘     │
-│         │                        │              │
-│         ▼                        ▼              │
-│  ┌──────────────┐         ┌──────────────┐     │
-│  │ Video Stream │────────▶│ Edge         │     │
-│  │ (Raw Feed)   │         │ Detection    │     │
-│  └──────────────┘         └──────────────┘     │
-│                                  │              │
-│                                  ▼              │
-│                          ┌──────────────┐       │
-│                          │ Processed    │       │
-│                          │ Output       │       │
-│                          └──────────────┘       │
-└─────────────────────────────────────────────────┘
-                           │
-                           ▼
-              ┌────────────────────────┐
-              │   Capacitor Bridge     │
-              │  (Mobile Deployment)   │
-              └────────────────────────┘
-                           │
-                           ▼
-              ┌────────────────────────┐
-              │   Native Android App   │
-              └────────────────────────┘
-```
+Real-time camera capture and frame processing
 
-## ✨ Features
+Edge detection using Sobel-based algorithms
 
-### Core Functionality
-- ✅ Real-time camera access via WebRTC API
-- ✅ Sobel-based edge detection algorithm
-- ✅ Grayscale conversion
-- ✅ Live FPS counter (targeting 10-15 FPS)
-- ✅ Toggle between Raw/Edge Detection/Grayscale modes
-- ✅ Responsive UI with dark/light mode support
+Smooth performance targeting 10–15 FPS
 
-### Technical Implementation
-- **Camera Capture**: WebRTC MediaStream API with 720p resolution
-- **Processing Pipeline**: Canvas 2D API with per-frame image processing
-- **Edge Detection**: Sobel operator convolution with gradient magnitude thresholding
-- **Performance**: RequestAnimationFrame-based rendering loop
-- **Mobile**: Capacitor integration for native Android deployment
+Cross-platform deployment: Web + Android
 
-## 🚀 Quick Start
+Modern responsive design
 
-### Prerequisites
-- Node.js 18+ and npm
-- For Android: Android Studio + Android SDK
+This project is structured as a 3-day technical assessment to showcase your skills in frontend development, image processing, and mobile deployment.
 
-### Web Development
+🏗️ Architecture
+Camera (WebRTC) ─▶ Canvas 2D ─▶ Edge Detection ─▶ Processed Output
+                                  │
+                               Capacitor
+                                  │
+                              Android App
 
-```bash
+
+Explanation:
+
+Camera (WebRTC) – Captures live video frames from the device camera.
+
+Canvas 2D Processing – Each frame is converted to grayscale and processed using the Sobel algorithm for edge detection.
+
+Output – The processed video is displayed in real-time on the web or mobile.
+
+Capacitor Bridge – Packages the web app as a native Android app with access to device features.
+
+✨ Features
+Core Features
+
+✅ Real-time camera feed
+
+✅ Edge detection and grayscale modes
+
+✅ Toggle between Raw / Edge Detection / Grayscale
+
+✅ Live FPS counter
+
+✅ Responsive UI with dark/light mode
+
+Technical Implementation
+
+Camera Capture: WebRTC MediaStream API, 720p resolution
+
+Processing Pipeline: Canvas 2D API for per-frame image manipulation
+
+Edge Detection: Sobel operator convolution with gradient magnitude thresholding
+
+Performance Optimization: requestAnimationFrame rendering loop
+
+Mobile Integration: Capacitor with Camera plugin
+
+🚀 Quick Start
+Prerequisites
+
+Node.js 18+ and npm
+
+Android Studio + Android SDK (for mobile deployment)
+
+Web Development
 # Install dependencies
 npm install
 
@@ -80,117 +79,99 @@ npm run dev
 
 # Build for production
 npm run build
-```
 
-The app will be available at `http://localhost:5173`
 
-### Mobile Deployment (Android)
+Access at http://localhost:5173
 
-1. **Export to GitHub**
-   - Click "Export to Github" button in Lovable
-   - Clone your repository locally
+Mobile Deployment (Android)
+# Add Android platform
+npx cap add android
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+# Sync web build to native project
+npx cap sync
 
-3. **Add Android platform**
-   ```bash
-   npx cap add android
-   ```
+# Run on Android device/emulator
+npx cap run android
 
-4. **Update native dependencies**
-   ```bash
-   npx cap update android
-   ```
+# Or open Android Studio
+npx cap open android
 
-5. **Build the web app**
-   ```bash
-   npm run build
-   ```
+🛠️ Technology Stack
+Frontend
 
-6. **Sync to native platform**
-   ```bash
-   npx cap sync
-   ```
+React 18
 
-7. **Run on Android**
-   ```bash
-   npx cap run android
-   ```
+TypeScript
 
-   Or open in Android Studio:
-   ```bash
-   npx cap open android
-   ```
+Vite (build tool)
 
-## 🛠️ Technology Stack
+Tailwind CSS
 
-### Frontend
-- **React 18** - UI framework
-- **TypeScript** - Type-safe development
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first styling
-- **shadcn/ui** - Component library
+shadcn/ui
 
-### Processing
-- **Canvas 2D API** - Image processing
-- **WebRTC** - Camera access
-- **Sobel Algorithm** - Edge detection
+Processing
 
-### Mobile
-- **Capacitor 6** - Native mobile deployment
-- **Capacitor Camera Plugin** - Native camera integration
+Canvas 2D API
 
-## 📊 Processing Pipeline
+WebRTC API
 
-### Edge Detection Algorithm
+Sobel-based edge detection
 
-1. **Grayscale Conversion**
-   ```
-   gray = (R + G + B) / 3
-   ```
+Mobile
 
-2. **Sobel Convolution**
-   ```
-   Gx = [-1  0  1]    Gy = [-1 -2 -1]
-        [-2  0  2]         [ 0  0  0]
-        [-1  0  1]         [ 1  2  1]
-   ```
+Capacitor 6
 
-3. **Gradient Magnitude**
-   ```
-   magnitude = √(Gx² + Gy²)
-   ```
+Capacitor Camera Plugin
 
-4. **Thresholding**
-   ```
-   edge = magnitude > 50 ? 255 : 0
-   ```
+📊 Processing Pipeline
+Edge Detection Algorithm
 
-## 🎯 Performance Targets
+Grayscale Conversion
 
-- **FPS**: 10-15 FPS sustained
-- **Resolution**: 1280x720 (720p)
-- **Latency**: <100ms processing time per frame
-- **Memory**: Efficient canvas reuse
+gray = (R + G + B) / 3
 
-## 📱 Mobile-Specific Features
 
-When deployed as Android app:
-- Native camera access via Capacitor Camera plugin
-- Full-screen immersive mode
-- Hardware acceleration for canvas rendering
-- Background processing optimization
+Sobel Convolution
 
-## 🔧 Configuration
+Gx = [-1 0 1]    Gy = [-1 -2 -1]
+     [-2 0 2]         [ 0 0 0]
+     [-1 0 1]         [ 1 2 1]
 
-### Capacitor Config (`capacitor.config.ts`)
-```typescript
+
+Gradient Magnitude
+
+magnitude = Math.sqrt(Gx*Gx + Gy*Gy)
+
+
+Thresholding
+
+edge = magnitude > 50 ? 255 : 0
+
+🎯 Performance Targets
+
+FPS: 10–15
+
+Resolution: 1280x720
+
+Latency: <100ms/frame
+
+Efficient memory usage via canvas reuse
+
+📱 Mobile-Specific Features
+
+Native camera access via Capacitor Camera plugin
+
+Full-screen immersive mode
+
+Hardware-accelerated canvas rendering
+
+Background processing optimization
+
+🔧 Configuration
+Capacitor Config (capacitor.config.ts)
 {
-  appId: 'app.lovable.edgeflow',
-  appName: 'edgeflow-live',
+  appId: 'com.newcompany.edgeflow', // new app ID
+  appName: 'EdgeFlow Pro',           // new app display name
   webDir: 'dist',
   plugins: {
     Camera: {
@@ -198,60 +179,55 @@ When deployed as Android app:
     }
   }
 }
-```
 
-## 📝 Development Timeline (3-Day Assessment)
 
-### Day 1: Core Setup & Camera
-- ✅ Project initialization
-- ✅ Camera access implementation
-- ✅ Basic video rendering
-- ✅ FPS counter
+This ensures that Android treats this as a separate app and preserves image metadata correctly.
 
-### Day 2: Processing Pipeline
-- ✅ Canvas processing setup
-- ✅ Edge detection algorithm
-- ✅ Grayscale conversion
-- ✅ Mode toggling
+🐛 Troubleshooting
 
-### Day 3: Mobile & Polish
-- ✅ Capacitor integration
-- ✅ Android deployment setup
-- ✅ UI/UX refinement
-- ✅ Documentation
+Camera issues: Use HTTPS or localhost, allow permissions, recommended browsers: Chrome/Edge
 
-## 🐛 Troubleshooting
+Low FPS: Reduce camera resolution, tweak threshold values
 
-### Camera Access Issues
-- Ensure HTTPS or localhost (required for WebRTC)
-- Grant camera permissions in browser/device settings
-- Check browser compatibility (Chrome/Edge recommended)
+Android build issues: Ensure Android SDK setup, run npx cap sync, check AndroidManifest.xml for permissions
 
-### Performance Issues
-- Reduce video resolution in camera constraints
-- Adjust threshold values in edge detection
-- Check device hardware capabilities
+📚 Resources
 
-### Android Build Issues
-- Ensure Android SDK is properly configured
-- Run `npx cap sync android` after code changes
-- Check AndroidManifest.xml for camera permissions
+Capacitor Documentation
 
-## 📚 Additional Resources
+WebRTC API
 
-- [Capacitor Documentation](https://capacitorjs.com/docs)
-- [WebRTC API](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API)
-- [Canvas 2D API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
-- [Lovable Mobile Development Guide](https://lovable.dev/blogs/TODO)
+Canvas 2D API
 
-## 📄 License
+📝 Development Timeline (3-Day Assessment)
+Day 1: Core Setup & Camera
 
-MIT License - Free for educational and commercial use
+Project initialization
 
-## 🤝 Contributing
+Camera access implementation
 
-This is an assessment project, but contributions and suggestions are welcome!
+Basic video rendering
 
----
+FPS counter
 
-Built with ❤️ using Lovable, React, and Capacitor
+Day 2: Processing Pipeline
+
+Canvas processing setup
+
+Edge detection and grayscale conversion
+
+Mode toggling
+
+Day 3: Mobile & Polish
+
+Capacitor integration
+
+Android deployment setup
+
+UI/UX refinement
+
+Documentation
+
+🤝 License
+
+MIT License – Free for personal, educational, and commercial use
