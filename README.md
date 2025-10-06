@@ -247,11 +247,3 @@ When deployed as Android app:
 ## 📄 License
 
 MIT License - Free for educational and commercial use
-
-## 🤝 Contributing
-
-This is an assessment project, but contributions and suggestions are welcome!
-
----
-
-Built with ❤️ using Lovable, React, and Capacitor
